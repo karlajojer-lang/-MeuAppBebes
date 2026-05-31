@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Bebês</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>
+        <h1>Registro de Bebês</h1>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab-button active" data-tab="gerenciar-bebes">Gerenciar Bebês</button>
+        <button class="tab-button" data-tab="registro-diario">Registro Diário</button>
+        <button class="tab-button" data-tab="observacoes">Observações</button>
+        <button class="tab-button" data-tab="relatorio">Relatório</button>
+    </nav>
+
+    <main class="tab-content">
+        <!-- Aba Gerenciar Bebês -->
+        <section id="gerenciar-bebes" class="tab-pane active">
+            <h2>Gerenciar Bebês</h2>
+            <form id="form-bebe">
+                <label for="bebe-nome">Nome do Bebê:</label>
+                <input type="text" id="bebe-nome" required>
+
+                <label for="bebe-nascimento">Data de Nascimento (AAAA-MM-DD):</label>
+                <input type="date" id="bebe-nascimento" required>
+
+                <button type="submit" id="btn-adicionar-bebe">Adicionar Bebê</button>
+                <button type="button" id="btn-atualizar-bebe" disabled>Atualizar Bebê</button>
+                <button type="button" id="btn-excluir-bebe" disabled>Excluir Bebê</button>
+            </form>
+
+            <h3>Lista de Bebês</h3>
+            <ul id="lista-bebes">
+                <!-- Bebês serão carregados aqui pelo JavaScript -->
+            </ul>
+        </section>
+
+        <!-- Aba Registro Diário -->
+        <section id="registro-diario" class="tab-pane">
+            <h2>Registro Diário</h2>
+            <form id="form-registro-diario">
+                <label for="registro-bebe-id">ID do Bebê (primeiros 4 dígitos):</label>
+                <input type="text" id="registro-bebe-id" required>
+
+                <label for="registro-data">Data (AAAA-MM-DD):</label>
+                <input type="date" id="registro-data" required>
+
+                <label>
+                    <input type="checkbox" id="registro-presente"> Presente
+                </label>
+
+                <label for="registro-motor">Desenvolvimento Motor:</label>
+                <input type="text" id="registro-motor">
+
+                <label for="registro-cognitivo">Desenvolvimento Cognitivo:</label>
+                <input type="text" id="registro-cognitivo">
+
+                <label for="registro-emocional">Desenvolvimento Emocional:</label>
+                <input type="text" id="registro-emocional">
+
+                <label for="registro-comportamento">Comportamento:</label>
+                <input type="text" id="registro-comportamento">
+
+                <label for="registro-alimentacao">Alimentação:</label>
+                <input type="text" id="registro-alimentacao">
+
+                <label for="registro-sono">Sono:</label>
+                <input type="text" id="registro-sono">
+
+                <button type="submit">Registrar Diário</button>
+            </form>
+        </section>
+
+        <!-- Aba Observações -->
+        <section id="observacoes" class="tab-pane">
+            <h2>Observações</h2>
+            <form id="form-observacao">
+                <label for="observacao-bebe-id">ID do Bebê (primeiros 4 dígitos):</label>
+                <input type="text" id="observacao-bebe-id" required>
+
+                <label for="observacao-data">Data (AAAA-MM-DD):</label>
+                <input type="date" id="observacao-data" required>
+
+                <label for="observacao-texto">Observação:</label>
+                <textarea id="observacao-texto" rows="5"></textarea>
+
+                <button type="submit">Salvar Observação</button>
+            </form>
+        </section>
+
+        <!-- Aba Relatório -->
+        <section id="relatorio" class="tab-pane">
+            <h2>Relatório Descritivo Individual</h2>
+            <form id="form-gerar-relatorio">
+                <label for="relatorio-bebe-id">ID do Bebê (primeiros 4 dígitos):</label>
+                <input type="text" id="relatorio-bebe-id" required>
+                <button type="submit">Gerar Relatório</button>
+            </form>
+            <pre id="relatorio-output"></pre>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
